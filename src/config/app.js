@@ -6,6 +6,6 @@ export default {
   ...CommonConfig,
   ...SystemConfig,
   apiUrl: useApiUrl,
-  corporation: "公司名教育科技（北京）有限公司",
-  siteName: "ElementUi管理后台"
+  corporation: "爱有由科技(安徽)有限公司",
+  siteName: "牵挂"
 };

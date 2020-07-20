@@ -15,19 +15,25 @@
       label-position="left"
       :label-width="labelWidth"
     >
-      <el-form-item label="工单服务器IP" prop="ip">
+      <el-form-item label="网关IP" prop="ip">
         <el-input v-model="forms.name"
-          placeholder="请填入工单服务器IP"
+          placeholder="请填入短信网关服务器IP"
         ></el-input>
       </el-form-item>
-      <el-form-item label="工单服务器端口" prop="port">
+      <el-form-item label="网关端口" prop="port">
         <el-input
           v-model="forms.port"
-          placeholder="请填入工单服务器端口"
+          placeholder="请填入短信网关服务器端口"
         ></el-input>
       </el-form-item>
-      <el-form-item label="工单服务地址" prop="ispno">
-        <el-input v-model="forms.desc" placeholder="请填入工单服务地址"></el-input>
+      <el-form-item label="企业服务号码" prop="ispno">
+        <el-input v-model="forms.desc" placeholder="请填入短信网关企业服务号码"></el-input>
+      </el-form-item>
+      <el-form-item label="连接密码" prop="password">
+        <el-input v-model="forms.url" placeholder="请填入短信网关连接密码"></el-input>
+      </el-form-item>
+      <el-form-item label="超时时间(秒)" prop="timeout">
+        <el-input v-model="forms.phone" placeholder="请填入发送短信超时时间,默认30秒"></el-input>
       </el-form-item>
     </el-form>
     <div slot="footer" class="dialog-footer">
@@ -53,7 +59,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: "工单服务配置"
+      default: "短信网关服务器配置"
     },
     dialogWidth: {
       type: String,
@@ -76,7 +82,7 @@ export default {
         password: ""
       },
       rules: {
-        ...FillerFieldRules(["ip", "port","ispno"], Required),
+        ...FillerFieldRules(["ip", "port","ispno","password"], Required),
         phone: RequiredAndPhone, //or [Required, Phone]
         url: [Required, Url],
         test: Float2,
